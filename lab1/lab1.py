@@ -18,12 +18,12 @@ print(res)
 print(Columnar.decrypt_columnar(res, str_key))
 
 # Vizer
-str_key = Vizer.generateKey(str, str_key)
-print(Vizer.cipherText(str, str_key))
-print(Vizer.originalText(str, str_key))
+str_key = Vizer.generate_key(str, str_key)
+print(Vizer.encrypt_vizer(str, str_key))
+print(Vizer.dercrypt_vizer(str, str_key))
 
 # Grille
-#grille_key = grille.get_key()
-res, grille_key = grille.encrypt_grille(str)
+grille_key = grille.generate_key(str)
+res = grille.encrypt_grille(str, grille_key)
 print(res)
 print(grille.decrypt_grille(res, grille_key))

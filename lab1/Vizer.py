@@ -1,24 +1,24 @@
-def generateKey(string, key): 
-    key = list(key) 
-    if len(string) == len(key): 
-        return(key) 
+def generate_key(str, key):
+    key = list(key)
+    if len(str) == len(key):
+        return(key)
     else:
-        key.append(string[0: len(string) - len(key)]) 
+        key.append(str[0: len(str) - len(key)])
     return "".join(key).upper()
        
-def cipherText(string, key): 
-    cipher_text = []
-    for i in range(len(string)): 
-        x = (ord(string[i]) + 
+def encrypt_vizer(str, key):
+    encrypted_str = []
+    for i in range(len(str)):
+        x = (ord(str[i]) +
              ord(key[i])) % 26
-        x += ord('A') 
-        cipher_text.append(chr(x)) 
-    return "".join(cipher_text)
+        x += ord('A')
+        encrypted_str.append(chr(x))
+    return "".join(encrypted_str)
 
-def originalText(cipher_text, key): 
-    orig_text = [] 
-    for i in range(len(cipher_text)): 
-        x = (ord(cipher_text[i]) - ord(key[i]) + 26) % 26
-        x += ord('A') 
-        orig_text.append(chr(x)) 
-    return "".join(orig_text)
+def dercrypt_vizer(encrypted_str, key):
+    original_string = []
+    for i in range(len(encrypted_str)):
+        x = (ord(encrypted_str[i]) - ord(key[i]) + 26) % 26
+        x += ord('A')
+        original_string.append(chr(x))
+    return "".join(original_string)
